@@ -1,0 +1,28 @@
+{
+  "name": "memex",
+  "version": "0.0.0",
+  "description": "Multi-source CLI + MCP server for Obsidian-shaped markdown vaults",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "memex": "./src/cli/index.ts"
+  },
+  "scripts": {
+    "dev": "bun run src/cli/index.ts",
+    "build": "bun build --compile --outfile=dist/memex src/cli/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "commander": "^14.0.3",
+    "gray-matter": "^4.0.3",
+    "postgres": "^3.4.9",
+    "zod": "^4.4.3"
+  }
+}
