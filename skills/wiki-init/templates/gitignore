@@ -1,0 +1,5 @@
+.obsidian/workspace*
+.obsidian/cache
+.DS_Store
+.trash/
+node_modules/

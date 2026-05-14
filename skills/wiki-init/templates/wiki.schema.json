@@ -1,0 +1,59 @@
+{
+  "_about": "Machine-readable structure + format contract for this wiki vault. The single source of truth a validator checks pages against. CLAUDE.md describes these rules in prose; this file is what gets enforced. Edit per-project as conventions evolve.",
+  "version": 1,
+  "strict": false,
+
+  "structure": {
+    "raw": ["features", "sessions", "slack", "linear", "notes", "transcripts"],
+    "wiki": ["decisions", "bugs", "flows", "concepts"]
+  },
+
+  "types": {
+    "decision": {
+      "frontmatter": {
+        "required": ["type", "date", "status"],
+        "enums": { "status": ["active", "superseded", "rejected"] }
+      },
+      "sections": {
+        "required": ["Context", "Decision"],
+        "optional": ["Alternatives considered", "Tradeoffs accepted", "Revisit if", "Related"]
+      }
+    },
+    "bug": {
+      "frontmatter": {
+        "required": ["type", "date-fixed", "severity"],
+        "enums": { "severity": ["high", "medium", "low"] }
+      },
+      "sections": {
+        "required": ["Symptom", "Root cause", "Fix", "Detection"],
+        "optional": ["Why this happened", "Related"]
+      }
+    },
+    "flow": {
+      "frontmatter": {
+        "required": ["type", "status", "last-updated"],
+        "enums": { "status": ["proposed", "implemented", "shipped", "deprecated"] }
+      },
+      "sections": {
+        "required": ["Trigger", "Data path"],
+        "optional": ["Components touched", "Edge cases", "Status history", "Related"]
+      }
+    },
+    "concept": {
+      "frontmatter": {
+        "required": ["type", "last-updated"],
+        "enums": {}
+      },
+      "sections": {
+        "required": ["Details"],
+        "optional": ["Referenced by"]
+      }
+    }
+  },
+
+  "citation": {
+    "require_sources_frontmatter": true,
+    "allow_inferred_in_wiki": false,
+    "require_supersedes_pair": true
+  }
+}
